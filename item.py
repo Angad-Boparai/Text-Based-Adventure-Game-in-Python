@@ -1,26 +1,20 @@
-class item():
-	def __init__(self):
-		self.name=None
-		self.description=None
+class Item():
 
-	def set_description(self,description):
-		self.description=description
+	def __init__(self, item_name):
+		self.name = item_name
+		self.description = None
+
+	def get_name(self):
+		return self.name
+
+	def set_name(self, item_name):
+		self.name = item_name
 
 	def get_description(self):
 		return self.description
 
+	def set_description(self, item_description):
+		self.description = item_description
+
 	def describe(self):
-		print(self.description)			
-
-
-	def set_name(self,name):
-		self.name=name
-
-	def get_name(self):
-		return self.name
-	def set_location(self,location):
-		self.location=location
-	def get_location(self):
-		return self.location
-	def desc_location(self):
-		print(self.location)
+		print("The [" + self.name + "] is here - " + self.description)

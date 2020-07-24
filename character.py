@@ -28,9 +28,12 @@ class Character():
 		return True
 
 class Enemy(Character):
+	enemies_to_defeat = 0
+
 	def __init__(self, char_name, char_description):
 		super().__init__(char_name, char_description)
 		self.weakness = None 
+		Enemy.enemies_to_defeat = Enemy.enemies_to_defeat + 1
 
 	def set_weakness(self, item_weakness):
 		self.weakness = item_weakness
@@ -41,7 +44,24 @@ class Enemy(Character):
 	def fight(self, combat_item):
 		if combat_item == self.weakness:
 			print("You fend " + self.name + " off with the " + combat_item )
+			Enemy.enemies_to_defeat = Enemy.enemies_to_defeat - 1
 			return True
 		else:
 			print(self.name + " crushes you, puny adventurer")
 			return False
+	
+	def steal(self):
+		print("You steal from " + self.name)
+		# How will you decide what this character has to steal?
+
+class Friend(Character):
+  
+	def __init__(self, char_name, char_description):
+
+		super().__init__(char_name, char_description)
+		self.feeling = None
+
+	def hug(self):
+		print(self.name + " hugs you back!")
+
+	# What other methods could your Friend class have?
